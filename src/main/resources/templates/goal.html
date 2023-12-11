@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>目標一覧</title>
+</head>
+<body>
+<h1>目標一覧</h1>
+<a href="/goals/add">追加</a>
+<table border="1">
+	<tr th:each="goals:${goal}">
+		<td th:text="${goals.name}"></td>
+		<td><a href="/goals/edit">編集</a> </td>
+	</tr>
+	
+</table>
+</body>
+</html>
