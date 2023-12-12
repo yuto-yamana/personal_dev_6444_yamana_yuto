@@ -9,8 +9,17 @@
 <a href="/goals/add">追加</a>
 <table border="1">
 	<tr th:each="goals:${goal}">
-		<td th:text="${goals.name}"></td>
-		<td><a href="/goals/edit">編集</a> </td>
+		<td>  
+			<a th:href="'/tasks?goal_id='+${goals.id}">
+				<span th:text="${goals.name}"></span>
+			</a>
+        </td>
+		<td>
+			<form th:action="'/goals/'+${goals.id}+'/edit'"method="get">
+				<button>編集</button>
+			</form>
+		 </td>
+		 
 	</tr>
 	
 </table>

@@ -68,10 +68,26 @@ public class GoalsController {
 		
 	}
 	
+// 　削除処理
+		
+	
+	@PostMapping("/goals/{id}/delete")
+	public String deleteGoal(@PathVariable("id") Integer id,Model model) {
+		
+		goalRepository.deleteById(id);
+		
+		return "redirect:/goals";
+	}
 	
 
 	
 	
 
 	}
+	
+	
+	
+	
+
+	
 

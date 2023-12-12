@@ -7,30 +7,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="goals")
+@Table(name = "goals")
 public class Goal {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String name;
+	private Integer id;//目標ID
+	private String name; //目標名
+
 	
 	
-//	コンストラクタ
+	//	コンストラクタ
 	public Goal() {
 	}
-	
+
 	public Goal(String name) {
-		this.name=name;
+		this.name = name;
 	}
-	
+
 	public Goal(Integer id, String name) {
-		this.id=id;
-		this.name=name;
+		this.id = id;
+		this.name = name;
 	}
+
 	
 	
-//	ゲッター
+	
+	//	ゲッター
 	public Integer getId() {
 		return id;
 	}
