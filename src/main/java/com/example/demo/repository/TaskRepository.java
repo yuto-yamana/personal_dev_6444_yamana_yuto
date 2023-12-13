@@ -8,6 +8,6 @@ import com.example.demo.entity.Task;
 
 public interface TaskRepository extends JpaRepository<Task,Integer> {
 	
-	List<Task> findByGoalId(Integer goalsId);
+	List<Task> findByGoalId(Integer goalId);
 
 }

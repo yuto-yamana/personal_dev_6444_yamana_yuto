@@ -22,7 +22,7 @@ public class GoalsController {
 	@GetMapping("/goals")
 	public String index(Model model) {
 		List<Goal>goalList = goalRepository.findAll();
-		model.addAttribute("goal",goalList);
+		model.addAttribute("goals",goalList);
 		return "goal";
 	}
 	

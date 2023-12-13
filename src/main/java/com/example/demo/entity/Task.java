@@ -17,10 +17,19 @@ public class Task {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; //タスクID
 	private String name; //タスク名
-	@Column(name = "goals_id")
-	private Integer goalsId; //目標ID
+	@Column(name = "goal_id")
+	private Integer goalId; //目標ID
 	private Integer num; // カウント数
-
+	
+	
+    public Task() {
+    }
+    
+    public Task(String name,Integer goalId,Integer num) {
+    	this.name=name;
+    	this.goalId=goalId;
+    	this.num=num;
+    }
 	
 	
 	
@@ -32,8 +41,8 @@ public class Task {
 		return name;
 	}
 
-	public Integer getGoalsId() {
-		return goalsId;
+	public Integer getGoalId() {
+		return goalId;
 	}
 
 	public Integer getNum() {

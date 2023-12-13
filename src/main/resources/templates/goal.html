@@ -6,16 +6,16 @@
 </head>
 <body>
 <h1>目標一覧</h1>
-<a href="/goals/add">追加</a>
+<input type="button" onclick="location.href='/goals/add'" value="追加">
 <table border="1">
-	<tr th:each="goals:${goal}">
+	<tr th:each="goal:${goals}">
 		<td>  
-			<a th:href="'/tasks?goal_id='+${goals.id}">
-				<span th:text="${goals.name}"></span>
+			<a th:href="'/tasks?goal_id='+${goal.id}">
+				<span th:text="${goal.name}"></span>
 			</a>
         </td>
 		<td>
-			<form th:action="'/goals/'+${goals.id}+'/edit'"method="get">
+			<form th:action="'/goals/'+${goal.id}+'/edit'"method="get">
 				<button>編集</button>
 			</form>
 		 </td>

@@ -5,11 +5,34 @@
 <title>Todo一覧画面</title>
 </head>
 <body>
-	<tr th:each="task:${tasks}">
-		<td th:text="${task.name}"></td>
-		
-		
+	
+	<h1>ToDo一覧画面</h1>
+	
+	<input type="button" onclick="location.href='/goals'" value="目標一覧に戻る">
+	
+	
+	
+	<form th:action="'/tasks/add?goal_id='+${goalId}">
+		<input type="hidden" th:value="${goalId}" name="goal_id">
+		<button>追加</button>
+	</form>	
+	
+	<table border="1">
+	<tr th:each="tasks:${tasks}">
+		<td th:text="${tasks.id}"></td>
+		<td th:text="${tasks.name}"></td>
+		<td th:text="${tasks.num}"></td>
+		<td>
+			<form th:action="'/tasks/'+${tasks.id}+'/edit'"method="get">
+				<button>編集</button>
+			</form>	
+		</td>>		
 	</tr>
 
+	
+	</table>
+	
+	
+	
 </body>
 </html>
