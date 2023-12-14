@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>目標一覧</title>
+	<meta charset="UTF-8">
+	<title>目標一覧</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-<h1>目標一覧</h1>
-<input type="button" onclick="location.href='/goals/add'" value="追加">
-<table border="1">
-	<tr th:each="goal:${goals}">
-		<td>  
-			<a th:href="'/tasks?goal_id='+${goal.id}">
-				<span th:text="${goal.name}"></span>
-			</a>
-        </td>
-		<td>
-			<form th:action="'/goals/'+${goal.id}+'/edit'"method="get">
-				<button>編集</button>
-			</form>
-		 </td>
-		 
-	</tr>
-	
-</table>
+	<header>
+		<h1>目標一覧</h1>
+	</header>
+	<table>
+		<td class="add">
+			<input class="addbutton"  type="button" onclick="location.href='/goals/add'" value="追加">
+		</td>
+		<tr th:each="goal:${goals}">
+			<td class="goal">
+				<a th:href="'/tasks?goal_id='+${goal.id}">
+					<span th:text="${goal.name}"></span>
+				</a>
+			</td>
+			<td class="edit">
+				<form th:action="'/goals/'+${goal.id}+'/edit'" method="get">
+					<button class="addbutton">編集</button>
+				</form>
+			</td>
+
+		</tr>
+
+	</table>
 </body>
+
 </html>

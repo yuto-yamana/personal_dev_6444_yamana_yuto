@@ -30,7 +30,13 @@ public class Task {
     	this.goalId=goalId;
     	this.num=num;
     }
-	
+
+    public Task(Integer id,String name,Integer goalId,Integer num) {
+    	this.id=id;
+    	this.name=name;
+    	this.goalId=goalId;
+    	this.num=num;
+    }
 	
 	
 	public Integer getId() {

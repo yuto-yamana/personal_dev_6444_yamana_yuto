@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>目標編集画面</title>
+	<meta charset="UTF-8">
+	<title>目標編集画面</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-	<h1>目標編集画面</h1>
+
+	<header>
+		<h1>目標編集</h1>
+	</header>
 	<button type="button" onclick="history.back()">戻る</button>
-	
-		
-			<table border="1">
-				
-				<tr>
-					<td><form th:action="'/goals/' + ${goal.id} + '/edit'"method="post">
+
+
+	<table border="1">
+
+		<tr>
+			<td>
+				<form th:action="'/goals/' + ${goal.id} + '/edit'" method="post">
 					<input type="text" name="name" th:value="${goal.name}">
-					</td>
-					<td>
-						<button>更新</button></form></td>
-					
-					
-					<td>
-						<form th:action="'/goals/ '+ ${goal.id} +'/delete'"method="post">
-							<button>削除</button>
-						</form>
-					</td>
-				</tr>
-			</table>
+			</td>
+			<td>
+				<button>更新</button></form>
 		
-	
+				<form th:action="'/goals/ '+ ${goal.id} +'/delete'" method="post">
+					<button>削除</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+
+
 </body>
+
 </html>

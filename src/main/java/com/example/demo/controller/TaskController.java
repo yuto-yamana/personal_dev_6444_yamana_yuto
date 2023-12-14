@@ -60,4 +60,31 @@ public class TaskController {
 		return "editTask";
 
 	}
+
+	//   更新処理
+	@PostMapping("/tasks/{id}/edit")
+	public String updateTask(
+			@PathVariable("id") Integer id,
+			@RequestParam("goal_id") Integer goalId,
+			@RequestParam(value = "name", defaultValue = "") String name,
+			@RequestParam(value = "num", defaultValue = "") Integer num,
+			Model model) {
+
+		Task task = new Task(id, name, goalId, num);
+		taskRepository.save(task);
+		return "redirect:/tasks?goal_id=" + goalId;
+	}
+
+	//削除処理
+
+	@PostMapping("/tasks/{id}/delete")
+	public String deleteTask(@PathVariable("id") Integer id,
+			@RequestParam("goal_id") Integer goalId,
+			Model model) {
+
+		taskRepository.deleteById(id);
+
+		return "redirect:/tasks?goal_id=" + goalId;
+
+	}
 }

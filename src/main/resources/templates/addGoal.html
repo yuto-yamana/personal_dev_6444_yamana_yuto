@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>目標登録</title>
 
+<head>
+	<meta charset="UTF-8">
+	<title>目標登録</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-<button type="button" onclick="history.back()">戻る</button>
-<form action="/goals/add" method="post">
-	<table border="1">
-		<tr>
-			<td>
-				<input type="text" name="name">
-			</td>
-			<td>
-				<button>登録</button>
-			</td>
-		</tr>
-	</table>
-</form>
+	<header>
+		<h1>目標追加</h1>
+	</header>
+	<button type="button" onclick="history.back()">戻る</button>
+	<form action="/goals/add" method="post">
+		<table border="1">
+			<tr>
+				<td>
+					<input type="text" name="name" placeholder="目標を入力してください">
+				</td>
+				<td>
+					<button>登録</button>
+				</td>
+			</tr>
+		</table>
+	</form>
 </body>
+
 </html>
