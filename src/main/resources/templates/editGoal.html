@@ -12,21 +12,23 @@
 	<header>
 		<h1>目標編集</h1>
 	</header>
-	<button type="button" onclick="history.back()">戻る</button>
 
-
-	<table border="1">
-
+	
+		<div class="box">
+			<input class="backbutton" type="button" onclick="location.href='/goals'" value="戻る">
+		</div>
+     <table>
 		<tr>
-			<td>
-				<form th:action="'/goals/' + ${goal.id} + '/edit'" method="post">
-					<input type="text" name="name" th:value="${goal.name}">
+			<td class="edititem">
+				<form  th:action="'/goals/' + ${goal.id} + '/edit'" method="post">
+					<input class="editgoal"  type="text" name="name" th:value="${goal.name}">
 			</td>
-			<td>
-				<button>更新</button></form>
-		
+			<td class="update">
+				<button class="updatebutton">更新</button></form>
+			</td>	
+            <td class="delete">
 				<form th:action="'/goals/ '+ ${goal.id} +'/delete'" method="post">
-					<button>削除</button>
+					<button class="deletebutton">削除</button>
 				</form>
 			</td>
 		</tr>

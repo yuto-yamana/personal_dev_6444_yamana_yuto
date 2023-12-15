@@ -3,7 +3,7 @@ body {
 	background-color: #EFF0F7; /* 背景色  */
 	text-align: center; /* 中央寄せ */
     min-width: 900px; /* 最小幅 */
-    }
+}
 header{
 	background: #483D8B;
 	color: 	#EEEEEE;
@@ -11,27 +11,52 @@ header{
 	padding-bottom:10px ;
 }   
 /* 表 */
-table {
+.tasktable{
+	    
+    min-width: 500px;
+ }
+.table {
     margin: 40px auto;
     min-width: 500px;
     
 }
 
-.add,.edit{
-	text-align: left;
+
+.add,.edit,.back,.update,.delete{
+	text-align: left ;
 }
-.goal{
-	border: 2px solid ;
+.goal,.task,.tasknum{
+	border: 1px solid ;
 	background-color: rgb(255, 255, 255); ;
 	font-size: 30px;
 	
 	}
-.addbutton{
+
+.addgoal,.editgoal,.addedit,.addtask,.edittask{
 	font-size: 30px;
-	padding: 5px;
+	
 }
-.addbutton{
-	font-size: 15px;
-	padding: 5px;
+
+
+.addbutton,.editbutton,.updatebutton,.deletebutton{
+	font-size: 25px;
 }
+
+.box{
+	position:relative;
+	height:100px;
+}
+
+.backbutton{
+	position:absolute;
+	left:380px;
+	top:20px;
+	font-size: 20px;
+}
+.editnum{
+	font-size: 30px;
+	width: 60px;
+	text-align: center;
+}
+
 
