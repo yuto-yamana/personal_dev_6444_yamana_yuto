@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,11 +22,29 @@ public class TaskController {
 	@GetMapping("/tasks")
 	public String index(@RequestParam("goal_id") Integer goalId, Model model) {
 
+		List<Task>task=taskRepository.findByGoalId(goalId);
 		model.addAttribute("goalId", goalId);
-		model.addAttribute("tasks", taskRepository.findByGoalId(goalId));
-
+		model.addAttribute("tasks", task);
+		task =taskRepository.findByGoalIdOrderByIdAsc(goalId);
+	
 		return "tasks";
 	}
+	
+	@PostMapping("/tasks/{id}/increaseNum")
+	public String increaseNum(@PathVariable("id")Integer id,
+			@RequestParam("goal_id")Integer goalId){
+		
+		Task task = taskRepository.findById(id).get();
+		Integer newNum = task.getNum() + 1;
+		task.setNum(newNum);
+		taskRepository.save(task);
+		
+		return "redirect:/tasks?goal_id=" + goalId;
+		
+	}
+	
+
+	
 
 	//  登録画面遷移	
 	@GetMapping("/tasks/add")

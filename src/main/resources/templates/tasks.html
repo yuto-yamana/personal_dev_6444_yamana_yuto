@@ -12,22 +12,33 @@
 	<header>
 		<h1>ToDo一覧</h1>
 	</header>
-	
-		<div class="box">
-			<input class="backbutton" type="button" onclick="location.href='/goals'" value="戻る">
-		</div>
-		<table class="tasktable">
+
+	<div class="box">
+		<input class="backbutton" type="button" onclick="location.href='/goals'" value="戻る">
+	</div>
+	<table class="tasktable">
 		<td class="add">
 			<form th:action="'/tasks/add?goal_id='+${goalId}">
 				<input type="hidden" th:value="${goalId}" name="goal_id">
-				<button class="addbutton" >追加</button>
+				<button class="addbutton">追加</button>
 			</form>
 		</td>
-		<tr th:each="tasks:${tasks}">
-			<td class="task" th:text="${tasks.name}"></td>
-			<td class="tasknum" th:text="${tasks.num}+回達成"></td>
+
+
+
+		<tr th:each="task:${tasks}">
+
+			<td class="task" th:text="${task.name}"></td>
+			<td class="counter" th:text="${task.num}+'回達成'"></td>
+			<form th:action="@{/tasks/} + ${task.id} + @{/increaseNum(goal_id=${goalId})}" method="post">
+				<input type="hidden" th:value="${goalId}" name="goal_id">
+				<td><button class="btnAdd">+</button></td>
+			</form>
+
+
+
 			<td class="edit">
-				<form th:action="'/tasks/'+${tasks.id}+'/edit'" method="get">
+				<form th:action="'/tasks/'+${task.id}+'/edit'" method="get">
 					<input type="hidden" th:value="${goalId}" name="goal_id">
 					<button class="addbutton">編集</button>
 				</form>
@@ -36,6 +47,7 @@
 
 
 	</table>
+
 
 
 

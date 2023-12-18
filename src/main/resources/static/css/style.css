@@ -11,11 +11,7 @@ header{
 	padding-bottom:10px ;
 }   
 /* 表 */
-.tasktable{
-	    
-    min-width: 500px;
- }
-.table {
+table {
     margin: 40px auto;
     min-width: 500px;
     
@@ -25,7 +21,7 @@ header{
 .add,.edit,.back,.update,.delete{
 	text-align: left ;
 }
-.goal,.task,.tasknum{
+.goal,.task{
 	border: 1px solid ;
 	background-color: rgb(255, 255, 255); ;
 	font-size: 30px;
@@ -58,5 +54,12 @@ header{
 	width: 60px;
 	text-align: center;
 }
+.counter{
+		border: 1px solid ;
+	background-color: rgb(255, 255, 255); ;
+	font-size: 30px;
+}
+.btnAdd{
+    font-size: 30px;
 
-
+}

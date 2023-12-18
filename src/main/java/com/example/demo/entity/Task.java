@@ -23,7 +23,16 @@ public class Task {
 	
 	
     public Task() {
+    	
     }
+
+	public Task(Integer id,Integer num, Integer goalId,String name) {
+    	this.id=id;
+    	this.num=num;
+    	this.goalId=goalId;
+    	this.name=name;
+    }
+    
     
     public Task(String name,Integer goalId,Integer num) {
     	this.name=name;
@@ -54,4 +63,17 @@ public class Task {
 	public Integer getNum() {
 		return num;
 	}
+
+public void setId(Integer id) {
+	this.id = id;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public void setGoalId(Integer goalId) {
+	this.goalId = goalId;
+}
+public void setNum(Integer num) {
+	this.num = num;
+}
 }

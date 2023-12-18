@@ -10,4 +10,10 @@ public interface TaskRepository extends JpaRepository<Task,Integer> {
 	
 	List<Task> findByGoalId(Integer goalId);
 
+	void save(Integer num);
+	
+	List<Task>findByGoalIdOrderByIdAsc(Integer goalId);
+	
+	
+
 }

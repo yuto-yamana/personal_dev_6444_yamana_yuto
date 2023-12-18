@@ -12,17 +12,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Goal;
 import com.example.demo.repository.GoalRepository;
+import com.example.demo.repository.TaskRepository;
 @Controller
 public class GoalsController {
 	
 	@Autowired
 	GoalRepository goalRepository;
+	
+	@Autowired
+	TaskRepository taskRepository;
 		
 //  目標一覧画面表示	
 	@GetMapping("/goals")
-	public String index(Model model) {
+	public String index(@RequestParam("id")Integer id,Model model) {
 		List<Goal>goalList = goalRepository.findAll();
+	
 		model.addAttribute("goals",goalList);
+		
 		return "goal";
 	}
 	
