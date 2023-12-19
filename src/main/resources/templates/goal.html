@@ -5,26 +5,26 @@
 	<meta charset="UTF-8">
 	<title>目標一覧</title>
 	<link rel="stylesheet" href="/css/style.css">
-	
+
 </head>
 
 <body>
 	<header>
 		<h1>目標一覧</h1>
 	</header>
-	<table >
+	<table>
 		<td class="add">
-			<input class="addbutton"  type="button" onclick="location.href='/goals/add'" value="追加">
+			<input class="addbutton" type="button" onclick="location.href='/goals/add'" value="追加">
 		</td>
 		<tr th:each="goal:${goals}">
 			<td class="goal">
-				<a th:href="'/tasks?goal_id='+${goal.id}">
-					<span th:text="${goal.name}"></span>
+				<a class="a" th:href="'/tasks?goal_id='+${goal.id}">
+					<span class="goallink" th:text="${goal.name}"></span>
 				</a>
 			</td>
 			<td class="edit">
 				<form th:action="'/goals/'+${goal.id}+'/edit'" method="get">
-					<button class="addbutton">編集</button>
+					<button class="editbutton">編集</button>
 				</form>
 			</td>
 

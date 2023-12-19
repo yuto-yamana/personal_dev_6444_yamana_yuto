@@ -13,87 +13,75 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Goal;
 import com.example.demo.repository.GoalRepository;
 import com.example.demo.repository.TaskRepository;
+
 @Controller
 public class GoalsController {
-	
+
 	@Autowired
 	GoalRepository goalRepository;
-	
+
 	@Autowired
 	TaskRepository taskRepository;
-		
-//  目標一覧画面表示	
+
+	//  目標一覧画面表示	
 	@GetMapping("/goals")
-	public String index(@RequestParam("id")Integer id,Model model) {
-		List<Goal>goalList = goalRepository.findAll();
-	
-		model.addAttribute("goals",goalList);
-		
+	public String index(Model model) {
+		List<Goal> goalList = goalRepository.findAllByOrderByIdAsc();
+
+		model.addAttribute("goals", goalList);
+
 		return "goal";
 	}
-	
-	
-//  登録画面遷移	
+
+	//  登録画面遷移	
 	@GetMapping("/goals/add")
 	public String addGoal() {
 		return "addGoal";
 	}
-	
-//  目標登録処理
+
+	//  目標登録処理
 	@PostMapping("/goals/add")
 	public String createGoal(
-		@RequestParam(value = "name" , defaultValue = "")String name,
-		Model model){
-		
+			@RequestParam(value = "name", defaultValue = "") String name,
+			Model model) {
+
 		Goal goals = new Goal(name);
-		
+
 		goalRepository.save(goals);
-		
+
 		return "redirect:/goals";
 	}
-	
-// 　編集画面表示　
+
+	// 　編集画面表示　
 	@GetMapping("/goals/{id}/edit")
-	public String editGoal(@PathVariable("id") Integer id,Model model) {
-		
+	public String editGoal(@PathVariable("id") Integer id, Model model) {
+
 		Goal goals = goalRepository.findById(id).get();
-		model.addAttribute("goal",goals);
+		model.addAttribute("goal", goals);
 		return "editGoal";
 	}
 
-//  更新処理	
+	//  更新処理	
 	@PostMapping("/goals/{id}/edit")
 	public String updateGoal(
-			@PathVariable("id")Integer id,
-			@RequestParam(value="name", defaultValue="")String name,
+			@PathVariable("id") Integer id,
+			@RequestParam(value = "name", defaultValue = "") String name,
 			Model model) {
-		
+
 		Goal goals = new Goal(id, name);
 		goalRepository.save(goals);
 		return "redirect:/goals";
-		
+
 	}
-	
-// 　削除処理
-		
-	
+
+	// 　削除処理
+
 	@PostMapping("/goals/{id}/delete")
-	public String deleteGoal(@PathVariable("id") Integer id,Model model) {
-		
+	public String deleteGoal(@PathVariable("id") Integer id, Model model) {
+
 		goalRepository.deleteById(id);
-		
+
 		return "redirect:/goals";
 	}
-	
-  
-	
-	
 
-	}
-	
-	
-	
-	
-
-	
-
+}

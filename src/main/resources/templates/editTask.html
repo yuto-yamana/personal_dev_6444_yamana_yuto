@@ -12,12 +12,12 @@
 		<h1>ToDo編集</h1>
 	</header>
 	<div class="box">
-	<button class="backbutton" type="button" onclick="history.back()">戻る</button>
-    </div>
-	<table>
+		<button class="backbutton" type="button" onclick="history.back()">戻る</button>
+	</div>
+	<table class="edittable">
 		<tr>
 			<form th:action="@{/tasks/} + ${task.id} + @{/edit(goal_id=${goalId})}" method="post">
-			
+
 				<td class="edititem">
 					<input type="hidden" th:value="${goalId}" name="goal_id">
 					<input class="edittask" type="text" name="name" th:value="${task.name}">

@@ -11,8 +11,6 @@ import jakarta.persistence.Table;
 @Table(name = "tasks")
 public class Task {
 
-
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; //タスクID
@@ -20,34 +18,31 @@ public class Task {
 	@Column(name = "goal_id")
 	private Integer goalId; //目標ID
 	private Integer num; // カウント数
-	
-	
-    public Task() {
-    	
-    }
 
-	public Task(Integer id,Integer num, Integer goalId,String name) {
-    	this.id=id;
-    	this.num=num;
-    	this.goalId=goalId;
-    	this.name=name;
-    }
-    
-    
-    public Task(String name,Integer goalId,Integer num) {
-    	this.name=name;
-    	this.goalId=goalId;
-    	this.num=num;
-    }
+	public Task() {
 
-    public Task(Integer id,String name,Integer goalId,Integer num) {
-    	this.id=id;
-    	this.name=name;
-    	this.goalId=goalId;
-    	this.num=num;
-    }
-	
-	
+	}
+
+	public Task(Integer id, Integer num, Integer goalId, String name) {
+		this.id = id;
+		this.num = num;
+		this.goalId = goalId;
+		this.name = name;
+	}
+
+	public Task(String name, Integer goalId, Integer num) {
+		this.name = name;
+		this.goalId = goalId;
+		this.num = num;
+	}
+
+	public Task(Integer id, String name, Integer goalId, Integer num) {
+		this.id = id;
+		this.name = name;
+		this.goalId = goalId;
+		this.num = num;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -64,16 +59,19 @@ public class Task {
 		return num;
 	}
 
-public void setId(Integer id) {
-	this.id = id;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public void setGoalId(Integer goalId) {
-	this.goalId = goalId;
-}
-public void setNum(Integer num) {
-	this.num = num;
-}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setGoalId(Integer goalId) {
+		this.goalId = goalId;
+	}
+
+	public void setNum(Integer num) {
+		this.num = num;
+	}
 }

@@ -15,8 +15,6 @@ public class Goal {
 	private Integer id;//目標ID
 	private String name; //目標名
 
-	
-	
 	//	コンストラクタ
 	public Goal() {
 	}
@@ -30,9 +28,6 @@ public class Goal {
 		this.name = name;
 	}
 
-	
-	
-	
 	//	ゲッター
 	public Integer getId() {
 		return id;

@@ -22,29 +22,25 @@ public class TaskController {
 	@GetMapping("/tasks")
 	public String index(@RequestParam("goal_id") Integer goalId, Model model) {
 
-		List<Task>task=taskRepository.findByGoalId(goalId);
+		List<Task> task = taskRepository.findByGoalIdOrderByIdAsc(goalId);
 		model.addAttribute("goalId", goalId);
 		model.addAttribute("tasks", task);
-		task =taskRepository.findByGoalIdOrderByIdAsc(goalId);
-	
+
 		return "tasks";
 	}
-	
+
 	@PostMapping("/tasks/{id}/increaseNum")
-	public String increaseNum(@PathVariable("id")Integer id,
-			@RequestParam("goal_id")Integer goalId){
-		
+	public String increaseNum(@PathVariable("id") Integer id,
+			@RequestParam("goal_id") Integer goalId) {
+
 		Task task = taskRepository.findById(id).get();
 		Integer newNum = task.getNum() + 1;
 		task.setNum(newNum);
 		taskRepository.save(task);
-		
-		return "redirect:/tasks?goal_id=" + goalId;
-		
-	}
-	
 
-	
+		return "redirect:/tasks?goal_id=" + goalId;
+
+	}
 
 	//  登録画面遷移	
 	@GetMapping("/tasks/add")

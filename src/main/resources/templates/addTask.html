@@ -16,7 +16,7 @@
 	<div class="box">
 		<button class="backbutton" type="button" onclick="history.back()">戻る</button>
 	</div>
-	<table>
+	<table class="addtable">
 
 		<form th:action="'/tasks/add?goal_id='+${goalId}" method="post">
 			<input type="hidden" th:value="${goalId}" name="goal_id">
